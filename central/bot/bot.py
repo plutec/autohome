@@ -79,7 +79,10 @@ class TelegramBot:
         url = self.api + method
         params = params if params else {}
         res = requests.post(url, params=params, files=files)
-        return res.json()
+        try:
+            return res.json()
+        except:
+            return dict()
 
     def allowed(self, message):
         if message.type == Message.NORMAL_MESSAGE:
@@ -89,7 +92,7 @@ class TelegramBot:
     def updates(self):
         data = {'offset': self.offset}
         r = self.query('getUpdates', data)
-        for update in r['result']:
+        for update in r.get('result', list()):
             message = Message(update)
             if settings.DEBUG:
                 if message.type == Message.NORMAL_MESSAGE:
