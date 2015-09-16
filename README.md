@@ -3,6 +3,8 @@ With this project we pretend to make a "intelligente" environment at home.
 
 We define distinct parts that we will describe in the next points:
 
+#Designing
+All protoboard and PCB designs are made with Fritzing (http://fritzing.org/)[http://fritzing.org/]
 
 *DEVELOPING!!*
 
